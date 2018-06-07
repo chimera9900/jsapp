@@ -10,19 +10,7 @@ import {setTextFilter, sortByAmount, sortByDate, setEndDate, setStartDate} from 
 import {getVisibleExpenses} from './selectors/expenses'
 
 const  store = configureStore()
-store.subscribe(() => {
-  // console.log(store.getState());
-  const state = store.getState()
-  const visiableExpenses = getVisibleExpenses(state.expenses, state.filters)
-  console.log(visiableExpenses)
-});
 
-store.dispatch(addExpense({ description: 'Water bill', amount: 100 , createdAt: 2000}))
-store.dispatch(addExpense({ description: 'Rent', amount: 300 , createdAt: 1500}))
-store.dispatch(addExpense({ description: 'Gas bill', amount: 200 , createdAt: 1000}))
-// store.dispatch(setTextFilter('water bill'))
-
-// console.log(store.getState())
 
 const jsx = (
   <Provider store={store}>
